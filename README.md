@@ -65,13 +65,14 @@ Use `select()` to determine if there was a 3 second timeout. If so, close the so
 Use `read()` or `recv()` to get a new packet from the client. Close the sockets if we read length 0 , exit if we got -1.
 
 Interpret the flags of the `proxy header`.
-	on connect, start a telnet session
-	on close, close all sockets & detatch threads & return
-	on heartbeat, reply with a similar heartbeat.
-	on ACK, clear all ack'ed messages in the cache until (and including) the current sequence number
-	and finally, on a simple data packet, just go ahead and forward to the localhost telnet.
+    on connect, start a telnet session
+    on close, close all sockets & detatch threads & return
+    on heartbeat, reply with a similar heartbeat.
+    on ACK, clear all ack'ed messages in the cache until (and including) the current sequence number
+    and finally, on a simple data packet, just go ahead and forward to the localhost telnet.
 
 Once we've read, we should go ahead and let the client know that we've ACK'd it.
+
 	
 ###Client
 Client should connect to local telnet and read from it.
@@ -84,7 +85,7 @@ Client should connect to local telnet and read from it.
      - On an ACK, go ahead and remove all of our ACK'd packets
      - On data send to the telnet server
      - On heartbeat, keep track that we received it
-     - 
+
 ###Threading
 Note that this is not necessarily the exact ordering things should go in. While the client should definitely attempt to connect to telnet before it connects to the server (as telnet starts at the client), we can't send info from the telnet session to the server without having connected to the `sproxy` first.
 
