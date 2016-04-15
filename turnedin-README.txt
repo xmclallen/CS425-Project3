@@ -9,7 +9,7 @@ Step 3 has completed:
     + ACKs
 
     Did not complete the queue. For some reason, when we started to add that
-     part in, the packets started to become malformed. This then caused
+     part in, occasionally the packets started to become malformed. This then caused
      either the server or client to read incorrect data and crash.
 
 
