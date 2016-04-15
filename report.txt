@@ -1,0 +1,21 @@
+Our header looks like this:
+
+struct Proxy_Header{
+    uint32_t seq_num;   
+    uint32_t ip; 
+    uint32_t len;       
+    char flag; 
+} __attribute__((packed));  //The size of this struct should be 13 bytes
+
+
+Originally, the IP attribute was going to be used to detect the change in
+ an eth1 IP address, but that wasn't implemented, and was unnecessary.
+
+ Our server will initiate a heartbeat after 1 second with no data. 
+ The client should then reply with a heartbeat. The server will simply
+    update a long int variable to remember the latest time that such a
+    heartbeat packet came in.
+
+ On a reconnect, the client will continusouly wait 5 to 10 seconds (I don't
+    remember exactly) before trying to reconnect. Once the connection
+    goes through, everything will continue as normal.
