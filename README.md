@@ -1,6 +1,7 @@
 #CSc 425 -- Project 3 Guide
 
-[TOC]
+This project was for CSc 425 Computer Networking Principles with Professor Bin Zhang at the University of Arizona, Fall 2015(?)
+This document was created to act as a bit of a guide/documentation/etc for the project, based on my own understanding of the specifications required for the project.
 
 ##General Idea
 Our goal is to be able to resume the telnet session after the address change, and do so without making changes to the `telnet` program or the TCP implementation in the OS kernel.
